@@ -7,24 +7,36 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const FAQS = [
   {
-    q: "Do you sell directly to individual customers?",
-    a: "No — Maa Satti Jewels is a pure B2B manufacturing unit. We supply retailers, wholesalers, and jewellery brands across India and internationally, not individual consumers.",
+    q: "Are you a manufacturer or a retailer?",
+    a: "We are a pure manufacturing unit and work exclusively in the B2B sector, supplying jewelry to retailers, wholesalers, and brands.",
   },
   {
-    q: "What materials do you work with?",
-    a: "Real gold in 14K, 18K, and 22K, set with certified diamonds, Polki, Kundan work, and natural gemstones — all crafted in-house by our team of 350+ artisans.",
+    q: "How can we start working with Maa Satti Jewels?",
+    a: "You can connect with us through our official channels or visit our factory by prior appointment to discuss requirements and collaborations.",
   },
   {
-    q: "Can you handle large or custom production orders?",
-    a: "Yes. Our Sitapura facility produces 9,800+ pieces annually across necklaces, earrings, bangles, brooches, rings, and bridal sets, with capacity for bespoke B2B collections.",
+    q: "What types of stones do you work with?",
+    a: "We work with Polki, certified diamonds, and high-quality natural gemstones, selected for brilliance and durability.",
   },
   {
-    q: "Which regions do you supply to?",
-    a: "We currently serve 200+ partners pan-India and ship to select international B2B clients. Reach out via the contact form to discuss your region.",
+    q: "What purity of gold do you use?",
+    a: "We manufacture jewelry in 14K, 18K, and 22K gold, ensuring quality, authenticity, and industry standards.",
   },
   {
-    q: "How do we start a partnership?",
-    a: "Book an appointment with our team below, or write to us directly — we'll walk you through our catalogue, MOQs, and production timelines.",
+    q: "Do you offer custom or made-to-order designs?",
+    a: "Yes. We offer customized and bespoke jewelry manufacturing based on client designs, concepts, and specifications.",
+  },
+  {
+    q: "What quality standards do you follow?",
+    a: "Every piece undergoes strict quality checks for craftsmanship, stone setting, finishing, and gold purity before dispatch.",
+  },
+  {
+    q: "Do you supply pan-India or internationally?",
+    a: "Yes, we supply across India and also cater to international B2B clients.",
+  },
+  {
+    q: "Where is your factory located?",
+    a: "Our manufacturing facility is located at F-60, EPIP, Sitapura, Jaipur, Rajasthan – 302022, India.",
   },
 ];
 
@@ -32,18 +44,18 @@ export function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-bone px-6 py-28 text-ink md:px-12 md:py-40">
-      <div className="mx-auto max-w-4xl">
+    <section id="faq" className="bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
+      <div className="mx-auto max-w-3xl">
         <Reveal>
           <p className="text-center text-xs uppercase tracking-[0.35em] text-gold-deep">
             Frequently Asked
           </p>
-          <h2 className="mt-6 text-center font-display text-4xl leading-tight md:text-5xl">
+          <h2 className="mt-5 text-center font-display text-4xl leading-tight md:text-5xl">
             Questions our partners ask.
           </h2>
         </Reveal>
 
-        <div className="mt-16 divide-y divide-ink/10 border-y border-ink/10">
+        <div className="mt-14 divide-y divide-ink/10 border-y border-ink/10">
           {FAQS.map((faq, i) => {
             const isOpen = open === i;
             return (
@@ -69,7 +81,7 @@ export function FAQAccordion() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-6 max-w-2xl text-sm leading-relaxed text-ink/60">
+                      <p className="max-w-2xl pb-6 text-sm leading-relaxed text-ink/60">
                         {faq.a}
                       </p>
                     </motion.div>

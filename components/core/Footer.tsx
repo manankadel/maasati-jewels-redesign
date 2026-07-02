@@ -17,8 +17,8 @@ const ICON_PATHS = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-gold/20 bg-ink px-6 pb-10 pt-20 md:px-12">
-      <div className="mx-auto max-w-[1600px]">
+    <footer className="border-t border-gold/20 bg-ink px-6 pb-10 pt-16 md:px-12">
+      <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <p className="font-display text-2xl tracking-[0.1em] text-bone">
@@ -29,13 +29,31 @@ export function Footer() {
               real-gold jewellery for retailers and brands since 2003.
             </p>
             <div className="mt-6 flex gap-4 text-bone/50">
-              <a href="#" aria-label="Instagram" className="transition hover:text-gold">
+              <a
+                href="https://www.instagram.com/maasattijewels/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="transition hover:text-gold"
+              >
                 <SocialIcon path={ICON_PATHS.instagram} />
               </a>
-              <a href="#" aria-label="LinkedIn" className="transition hover:text-gold">
+              <a
+                href="https://www.linkedin.com/company/maa-satti-jewels-pvt-ltd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="transition hover:text-gold"
+              >
                 <SocialIcon path={ICON_PATHS.linkedin} />
               </a>
-              <a href="#" aria-label="Facebook" className="transition hover:text-gold">
+              <a
+                href="https://www.facebook.com/maasattijewels7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="transition hover:text-gold"
+              >
                 <SocialIcon path={ICON_PATHS.facebook} />
               </a>
             </div>
@@ -46,6 +64,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-bone/60">
               <li><a href="#heritage" className="transition hover:text-bone">Heritage</a></li>
               <li><a href="#craft" className="transition hover:text-bone">Craftsmanship</a></li>
+              <li><a href="#team" className="transition hover:text-bone">Leadership</a></li>
               <li><a href="#collection" className="transition hover:text-bone">Collection</a></li>
               <li><a href="#faq" className="transition hover:text-bone">FAQ</a></li>
             </ul>

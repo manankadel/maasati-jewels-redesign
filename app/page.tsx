@@ -7,6 +7,8 @@ import { Categories } from "@/components/sections/Categories";
 import { Craftsmanship } from "@/components/sections/Craftsmanship";
 import { Collection } from "@/components/sections/Collection";
 import { TrustBar } from "@/components/sections/TrustBar";
+import { Team } from "@/components/sections/Team";
+import { Awards } from "@/components/sections/Awards";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { CTASection } from "@/components/sections/CTASection";
 
@@ -31,6 +33,8 @@ export default function Home() {
         <Craftsmanship />
         <TrustBar />
         <Collection />
+        <Team />
+        <Awards />
         <FAQAccordion />
         <CTASection />
       </main>

@@ -47,19 +47,6 @@ body {
   font-family: var(--font-display);
 }
 
-.text-stroke-gold {
-  -webkit-text-stroke: 1px var(--gold);
-}
-
-.hairline {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--gold) 60%, transparent),
-    transparent
-  );
-}
-
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -71,12 +58,4 @@ body {
 
 .animate-marquee {
   animation: marquee 28s linear infinite;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

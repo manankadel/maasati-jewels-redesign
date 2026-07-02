@@ -8,6 +8,7 @@ const LINKS = [
   { label: "Heritage", href: "#heritage" },
   { label: "Craft", href: "#craft" },
   { label: "Collection", href: "#collection" },
+  { label: "Leadership", href: "#team" },
   { label: "Partner With Us", href: "#faq" },
 ];
 

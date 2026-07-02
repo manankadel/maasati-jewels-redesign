@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-ink px-6 py-28 md:px-12 md:py-44">
+    <section className="relative overflow-hidden bg-ink px-6 py-24 md:px-12 md:py-36">
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.06]">
         <span className="font-display text-[28vw] leading-none text-gold">✦</span>
       </div>

@@ -6,31 +6,32 @@ import { ArrowDown } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-ink px-6 pb-16 pt-40 md:px-12">
-      <div className="absolute inset-0 -z-20">
+    <section className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-ink px-6 pb-14 pt-32 md:px-12 md:pb-16">
+      <div className="absolute inset-0 -z-10">
         <Image
-          src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=2400&auto=format&fit=crop"
-          alt="Handcrafted gold Polki jewellery"
+          src="/images/products/test.jpg"
+          alt="Handcrafted Polki and diamond necklace by Maa Satti Jewels"
           fill
           priority
-          className="object-cover opacity-40"
+          sizes="100vw"
+          className="object-cover object-[80%_25%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-transparent to-ink/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink from-10% via-ink/85 via-45% to-ink/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink from-0% via-ink/35 via-55% to-transparent" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1600px]">
+      <div className="relative mx-auto w-full max-w-[1400px]">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-gold"
+          className="mb-5 flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-gold"
         >
           <span className="h-px w-8 bg-gold" />
-          Jaipur, India · Est. 2003
+          Jaipur, India &middot; Est. 2003
         </motion.p>
 
-        <h1 className="font-display text-[13vw] leading-[0.92] tracking-tight text-bone md:text-[7.5vw]">
+        <h1 className="font-display text-[12.5vw] leading-[0.95] tracking-tight text-bone md:text-[6.8vw]">
           <motion.span
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
