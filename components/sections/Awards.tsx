@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { TextReveal } from "@/components/ui/TextReveal";
+import { ImageReveal } from "@/components/ui/ImageReveal";
 import { Reveal } from "@/components/ui/Reveal";
 
 const AWARDS = [
@@ -26,36 +28,42 @@ export function Awards() {
   return (
     <section className="bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <div className="flex flex-col items-start justify-between gap-6 border-b border-ink/10 pb-10 md:flex-row md:items-end">
-            <h2 className="font-display text-4xl leading-tight md:text-5xl">
-              Recognized by the
-              <br />
-              <span className="italic text-gold-deep">industry, three years running.</span>
-            </h2>
+        <div className="flex flex-col items-start justify-between gap-6 border-b border-ink/10 pb-10 md:flex-row md:items-end">
+          <h2 className="font-display text-4xl leading-tight md:text-5xl">
+            <TextReveal>Recognized by the</TextReveal>
+            <TextReveal delay={0.06} className="italic text-gold-deep">
+              industry, three years running.
+            </TextReveal>
+          </h2>
+          <Reveal>
             <p className="max-w-sm text-sm leading-relaxed text-ink/60">
               Honored by the Madras Jewellers &amp; Diamond Merchants
               Association in 2018, and by the Jewellery Eminence Awards every
               year since 2023.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+        <div className="mt-20 grid gap-20 md:grid-cols-3 md:gap-10">
           {AWARDS.map((award, i) => (
             <Reveal key={award.year} delay={i * 0.08}>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
-                <Image
-                  src={award.image}
-                  alt={`${award.title} — Jewellery Eminence Awards ${award.year}`}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover"
-                />
+              <div className="relative">
+                <span className="pointer-events-none absolute -top-16 left-0 select-none font-display text-[6rem] leading-none text-ink/[0.06] md:-top-20 md:text-[7.5rem]">
+                  {award.year}
+                </span>
+                <ImageReveal delay={i * 0.08} curtain="bone" className="relative aspect-[4/3] w-full rounded-sm">
+                  <Image
+                    src={award.image}
+                    alt={`${award.title} — Jewellery Eminence Awards ${award.year}`}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </ImageReveal>
+                <p className="relative mt-5 font-display text-sm text-gold-deep">{award.year}</p>
+                <h3 className="relative mt-1 font-display text-xl">{award.title}</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-ink/60">{award.body}</p>
               </div>
-              <p className="mt-5 font-display text-sm text-gold-deep">{award.year}</p>
-              <h3 className="mt-1 font-display text-xl">{award.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink/60">{award.body}</p>
             </Reveal>
           ))}
         </div>

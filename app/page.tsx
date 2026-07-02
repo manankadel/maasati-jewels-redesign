@@ -11,6 +11,7 @@ import { Team } from "@/components/sections/Team";
 import { Awards } from "@/components/sections/Awards";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { CTASection } from "@/components/sections/CTASection";
+import { GoldThread } from "@/components/ui/GoldThread";
 
 const TICKER = [
   "POLKI",
@@ -29,10 +30,12 @@ export default function Home() {
         <Hero />
         <Marquee items={TICKER} />
         <Heritage />
+        <GoldThread />
         <Categories />
         <Craftsmanship />
         <TrustBar />
         <Collection />
+        <GoldThread />
         <Team />
         <Awards />
         <FAQAccordion />

@@ -1,4 +1,10 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll } from "framer-motion";
+import { TextReveal } from "@/components/ui/TextReveal";
+import { ImageReveal } from "@/components/ui/ImageReveal";
 import { Reveal } from "@/components/ui/Reveal";
 
 const STEPS = [
@@ -25,50 +31,69 @@ const STEPS = [
 ];
 
 const GALLERY = [
-  { src: "/images/production/p4.jpg", alt: "350+ craftsmen at work on the Maa Satti Jewels manufacturing floor", span: "md:col-span-2" },
-  { src: "/images/production/p5.jpg", alt: "Hand-setting Polki stones onto a lac base", span: "" },
-  { src: "/images/production/p2.jpg", alt: "A craftsman hand-setting an emerald", span: "" },
-  { src: "/images/production/p3.jpg", alt: "Macro detail of a finished Polki ring", span: "md:col-span-2" },
+  { src: "/images/production/p4.jpg", alt: "350+ craftsmen at work on the Maa Satti Jewels manufacturing floor" },
+  { src: "/images/production/p5.jpg", alt: "Hand-setting Polki stones onto a lac base" },
+  { src: "/images/production/p2.jpg", alt: "A craftsman hand-setting an emerald" },
+  { src: "/images/production/p3.jpg", alt: "Macro detail of a finished Polki ring" },
 ];
 
 export function Craftsmanship() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 0.75", "end 0.4"],
+  });
+
   return (
     <section id="craft" className="relative bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <Reveal>
-          <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
-            Outstanding Production Ability
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight md:text-5xl">
-            From molten gold to museum-grade finish.
-          </h2>
-        </Reveal>
+        <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
+          <TextReveal>Outstanding Production Ability</TextReveal>
+        </p>
+        <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight md:text-5xl">
+          <TextReveal delay={0.06}>From molten gold to</TextReveal>
+          <TextReveal delay={0.12}>museum-grade finish.</TextReveal>
+        </h2>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-sm bg-ink/10 md:grid-cols-4">
+        <div ref={timelineRef} className="relative mt-16 md:pl-4">
+          <div className="absolute left-0 top-0 h-full w-px bg-ink/10 md:left-4" />
+          <motion.div
+            style={{ scaleY: scrollYProgress }}
+            className="absolute left-0 top-0 h-full w-px origin-top bg-gold-deep md:left-4"
+          />
+
           {STEPS.map((step, i) => (
-            <Reveal key={step.n} delay={i * 0.06}>
-              <div className="flex h-full flex-col gap-3 bg-bone p-7">
+            <Reveal key={step.n} delay={i * 0.05}>
+              <div className="relative flex gap-6 border-b border-ink/10 py-8 pl-8 last:border-b-0 md:pl-14">
+                <span className="absolute left-0 top-8 h-2 w-2 -translate-x-[3.5px] rounded-full bg-gold-deep md:left-4" />
                 <span className="font-display text-sm text-gold-deep">{step.n}</span>
-                <h3 className="font-display text-xl">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-ink/60">{step.copy}</p>
+                <div>
+                  <h3 className="font-display text-xl md:text-2xl">{step.title}</h3>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-ink/60">
+                    {step.copy}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+        <div className="mt-16 -mx-6 flex gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-4 md:gap-5 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
           {GALLERY.map((img, i) => (
-            <Reveal key={img.src} delay={i * 0.06} className={img.span}>
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </Reveal>
+            <ImageReveal
+              key={img.src}
+              delay={i * 0.06}
+              curtain="bone"
+              className="aspect-[3/4] w-[70vw] shrink-0 rounded-sm sm:w-[45vw] md:aspect-[4/5] md:w-auto"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="(min-width: 768px) 25vw, 70vw"
+                className="object-cover"
+              />
+            </ImageReveal>
           ))}
         </div>
       </div>

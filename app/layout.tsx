@@ -1,6 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/core/SmoothScroll";
+import { Cursor } from "@/components/core/Cursor";
+import { Grain } from "@/components/core/Grain";
+import { Preloader } from "@/components/core/Preloader";
+import { ReadyProvider } from "@/components/core/ReadyContext";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -19,12 +24,35 @@ export const metadata: Metadata = {
   description:
     "Since 2003, Maa Satti Jewels has been Jaipur's B2B home of light-weight luxury — 350+ master craftsmen hand-forging Polki, diamond, and 22K gold jewellery for retailers and brands worldwide.",
   metadataBase: new URL("https://maasattijewels.vercel.app"),
+  alternates: { canonical: "/" },
+  keywords: [
+    "Polki jewellery manufacturer",
+    "B2B jewellery Jaipur",
+    "Kundan jewellery wholesale",
+    "diamond jewellery manufacturer India",
+    "22K gold jewellery",
+    "Maa Satti Jewels",
+  ],
   openGraph: {
     title: "Maa Satti Jewels — The Atelier Behind India's Finest Jewellers",
     description:
       "350+ master craftsmen. 9,800+ pieces a year. Real gold, certified diamonds, Polki heritage — handcrafted in Jaipur since 2003.",
     type: "website",
+    url: "/",
+    siteName: "Maa Satti Jewels",
+    locale: "en_IN",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maa Satti Jewels — The Atelier Behind India's Finest Jewellers",
+    description:
+      "350+ master craftsmen. 9,800+ pieces a year. Handcrafted in Jaipur since 2003.",
+  },
+  robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b0a08",
 };
 
 export default function RootLayout({
@@ -34,7 +62,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="bg-ink text-bone antialiased">{children}</body>
+      <body className="bg-ink text-bone antialiased">
+        <ReadyProvider>
+          <Preloader />
+          <Grain />
+          <Cursor />
+          <SmoothScroll>{children}</SmoothScroll>
+        </ReadyProvider>
+      </body>
     </html>
   );
 }

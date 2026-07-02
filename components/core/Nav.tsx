@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 const LINKS = [
   { label: "Heritage", href: "#heritage" },
@@ -14,34 +15,67 @@ const LINKS = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    setScrolled(latest > 24);
+    if (latest < 120) {
+      setHidden(false);
+    } else {
+      setHidden(latest > previous);
+    }
+  });
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <motion.header
+      animate={{ y: hidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        scrolled ? "bg-ink/80 backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-12">
-        <a href="#" className="font-display text-lg tracking-[0.15em] text-bone">
+        <a href="#" data-cursor="Home" className="font-display text-lg tracking-[0.15em] text-bone">
           MAA SATTI <span className="text-gold">JEWELS</span>
         </a>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav
+          onMouseLeave={() => setHovered(null)}
+          className="hidden items-center gap-1 md:flex"
+        >
           {LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-xs uppercase tracking-[0.2em] text-bone/70 transition hover:text-gold"
+              onMouseEnter={() => setHovered(link.href)}
+              className="relative px-4 py-2 text-xs uppercase tracking-[0.2em] text-bone/70 transition-colors hover:text-bone"
             >
-              {link.label}
+              {hovered === link.href && (
+                <motion.span
+                  layoutId="nav-hover"
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-0 rounded-full bg-bone/[0.06]"
+                />
+              )}
+              <span className="relative">{link.label}</span>
             </a>
           ))}
-          <a
-            href="#contact"
-            className="group flex items-center gap-1.5 rounded-full border border-gold/50 px-5 py-2 text-xs uppercase tracking-[0.2em] text-gold transition hover:bg-gold hover:text-ink"
-          >
-            Book a Call
-            <ArrowUpRight
-              size={14}
-              className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </a>
+          <Magnetic className="ml-4">
+            <a
+              href="#contact"
+              className="group flex items-center gap-1.5 rounded-full border border-gold/50 px-5 py-2 text-xs uppercase tracking-[0.2em] text-gold transition hover:bg-gold hover:text-ink"
+            >
+              Book a Call
+              <ArrowUpRight
+                size={14}
+                className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+          </Magnetic>
         </nav>
 
         <button
@@ -87,6 +121,6 @@ export function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

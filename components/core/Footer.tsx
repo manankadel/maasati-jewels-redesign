@@ -1,3 +1,5 @@
+import { Magnetic } from "@/components/ui/Magnetic";
+
 function SocialIcon({ path }: { path: string }) {
   return (
     <svg viewBox="0 0 24 24" width={18} height={18} fill="currentColor" aria-hidden>
@@ -15,9 +17,18 @@ const ICON_PATHS = {
     "M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.05c0-.89.25-1.5 1.53-1.5h1.63V3.8C15.9 3.72 15 3.65 13.96 3.65c-2.35 0-3.96 1.43-3.96 4.06v2.27H7.3v3.08h2.7V21h3.5z",
 };
 
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} className="group relative inline-block text-bone/60 transition-colors hover:text-bone">
+      {children}
+      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+    </a>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="border-t border-gold/20 bg-ink px-6 pb-10 pt-16 md:px-12">
+    <footer className="relative overflow-hidden border-t border-gold/20 bg-ink px-6 pb-10 pt-16 md:px-12">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
@@ -29,44 +40,34 @@ export function Footer() {
               real-gold jewellery for retailers and brands since 2003.
             </p>
             <div className="mt-6 flex gap-4 text-bone/50">
-              <a
-                href="https://www.instagram.com/maasattijewels/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="transition hover:text-gold"
-              >
-                <SocialIcon path={ICON_PATHS.instagram} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/maa-satti-jewels-pvt-ltd/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="transition hover:text-gold"
-              >
-                <SocialIcon path={ICON_PATHS.linkedin} />
-              </a>
-              <a
-                href="https://www.facebook.com/maasattijewels7"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="transition hover:text-gold"
-              >
-                <SocialIcon path={ICON_PATHS.facebook} />
-              </a>
+              {[
+                { href: "https://www.instagram.com/maasattijewels/", label: "Instagram", path: ICON_PATHS.instagram },
+                { href: "https://www.linkedin.com/company/maa-satti-jewels-pvt-ltd/", label: "LinkedIn", path: ICON_PATHS.linkedin },
+                { href: "https://www.facebook.com/maasattijewels7", label: "Facebook", path: ICON_PATHS.facebook },
+              ].map((social) => (
+                <Magnetic key={social.label} strength={0.6}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="block transition hover:text-gold"
+                  >
+                    <SocialIcon path={social.path} />
+                  </a>
+                </Magnetic>
+              ))}
             </div>
           </div>
 
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-gold">Studio</p>
-            <ul className="mt-5 space-y-3 text-sm text-bone/60">
-              <li><a href="#heritage" className="transition hover:text-bone">Heritage</a></li>
-              <li><a href="#craft" className="transition hover:text-bone">Craftsmanship</a></li>
-              <li><a href="#team" className="transition hover:text-bone">Leadership</a></li>
-              <li><a href="#collection" className="transition hover:text-bone">Collection</a></li>
-              <li><a href="#faq" className="transition hover:text-bone">FAQ</a></li>
+            <ul className="mt-5 space-y-3 text-sm">
+              <li><FooterLink href="#heritage">Heritage</FooterLink></li>
+              <li><FooterLink href="#craft">Craftsmanship</FooterLink></li>
+              <li><FooterLink href="#team">Leadership</FooterLink></li>
+              <li><FooterLink href="#collection">Collection</FooterLink></li>
+              <li><FooterLink href="#faq">FAQ</FooterLink></li>
             </ul>
           </div>
 
@@ -84,16 +85,8 @@ export function Footer() {
             <p className="text-xs uppercase tracking-[0.25em] text-gold">Visit the Atelier</p>
             <ul className="mt-5 space-y-3 text-sm text-bone/60">
               <li>F-60, EPIP, Sitapura,<br />Jaipur, Rajasthan 302022</li>
-              <li>
-                <a href="mailto:maasattijewels@gmail.com" className="transition hover:text-bone">
-                  maasattijewels@gmail.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+911414517725" className="transition hover:text-bone">
-                  +91 141 451 7725
-                </a>
-              </li>
+              <li><FooterLink href="mailto:maasattijewels@gmail.com">maasattijewels@gmail.com</FooterLink></li>
+              <li><FooterLink href="tel:+911414517725">+91 141 451 7725</FooterLink></li>
             </ul>
           </div>
         </div>
@@ -103,6 +96,13 @@ export function Footer() {
           <p>Concept redesign by Blueblood Studio</p>
         </div>
       </div>
+
+      <p
+        aria-hidden
+        className="pointer-events-none mt-10 select-none text-center font-display text-[16vw] leading-none tracking-tighter text-bone/[0.04] md:text-[9vw]"
+      >
+        MAA SATTI JEWELS
+      </p>
     </footer>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { TextReveal } from "@/components/ui/TextReveal";
 import { Reveal } from "@/components/ui/Reveal";
 
 const FAQS = [
@@ -46,48 +47,68 @@ export function FAQAccordion() {
   return (
     <section id="faq" className="bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
       <div className="mx-auto max-w-3xl">
-        <Reveal>
-          <p className="text-center text-xs uppercase tracking-[0.35em] text-gold-deep">
-            Frequently Asked
-          </p>
-          <h2 className="mt-5 text-center font-display text-4xl leading-tight md:text-5xl">
+        <p className="text-center text-xs uppercase tracking-[0.35em] text-gold-deep">
+          <TextReveal className="justify-center">Frequently Asked</TextReveal>
+        </p>
+        <h2 className="mt-5 text-center font-display text-4xl leading-tight md:text-5xl">
+          <TextReveal delay={0.06} className="justify-center">
             Questions our partners ask.
-          </h2>
-        </Reveal>
+          </TextReveal>
+        </h2>
 
         <div className="mt-14 divide-y divide-ink/10 border-y border-ink/10">
           {FAQS.map((faq, i) => {
             const isOpen = open === i;
             return (
-              <div key={faq.q}>
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-6 py-6 text-left"
-                >
-                  <span className="font-display text-lg md:text-xl">{faq.q}</span>
+              <Reveal key={faq.q} delay={Math.min(i * 0.04, 0.24)}>
+                <div className="relative">
                   <motion.span
-                    animate={{ rotate: isOpen ? 45 : 0 }}
-                    className="shrink-0 text-gold-deep"
+                    animate={{ scaleY: isOpen ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ transformOrigin: "top" }}
+                    className="absolute -left-4 top-0 hidden h-full w-px bg-gold-deep md:block"
+                  />
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="group flex w-full items-center justify-between gap-6 py-6 text-left"
                   >
-                    <Plus size={20} />
-                  </motion.span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                    <span className="flex items-baseline gap-4">
+                      <span className="font-display text-xs text-gold-deep">
+                        0{i + 1}
+                      </span>
+                      <span
+                        className={`font-display text-lg transition-colors md:text-xl ${
+                          isOpen ? "text-gold-deep" : "group-hover:text-gold-deep"
+                        }`}
+                      >
+                        {faq.q}
+                      </span>
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden"
+                      className="shrink-0 text-gold-deep"
                     >
-                      <p className="max-w-2xl pb-6 text-sm leading-relaxed text-ink/60">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                      <Plus size={20} />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="max-w-2xl pb-6 pl-9 text-sm leading-relaxed text-ink/60">
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </Reveal>
             );
           })}
         </div>
