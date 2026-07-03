@@ -1,0 +1,163 @@
+import type { BgMode } from "./ReactiveBackground";
+
+/* Per-section background modes. Each is a distinct, jewellery-relatable motif.
+ * Global pacing intentionally ebbs and flows — climaxes at the hero and the
+ * final CTA, whispers through the quieter informational folds — so the page
+ * never feels uniformly busy (jewellery restraint). All stay behind text. */
+
+export const BG: Record<string, BgMode> = {
+  // Hero — a jeweller's loupe light trailing the cursor over drifting gold dust.
+  hero: {
+    motif: "dust",
+    cursor: "lightBloom",
+    connect: false,
+    count: 80,
+    countMobile: 34,
+    speed: 0.9,
+    color: "mixed",
+    intensity: 0.7,
+    rMin: 0.6,
+    rMax: 2,
+    reach: 280,
+  },
+  // Heritage — a kundan/jali lattice whose threads flex away from the cursor.
+  heritage: {
+    motif: "lattice",
+    cursor: "repel",
+    connect: true,
+    count: 46,
+    countMobile: 26,
+    speed: 0.5,
+    color: "goldDeep",
+    intensity: 0.5,
+    rMin: 1,
+    rMax: 2.1,
+    reach: 190,
+  },
+  // Categories — fine light refracting into rays from the cursor.
+  categories: {
+    motif: "dust",
+    cursor: "refract",
+    connect: false,
+    count: 58,
+    countMobile: 28,
+    speed: 0.5,
+    color: "mixed",
+    intensity: 0.5,
+    rMin: 0.6,
+    rMax: 1.6,
+    reach: 220,
+  },
+  // Craftsmanship — fine gold filings drawn toward the cursor (polishing dust).
+  craftsmanship: {
+    motif: "dust",
+    cursor: "attract",
+    connect: false,
+    count: 90,
+    countMobile: 40,
+    speed: 1,
+    color: "goldDeep",
+    intensity: 0.5,
+    rMin: 0.5,
+    rMax: 1.5,
+    reach: 190,
+  },
+  // Trust bar — a whisper of settled motes, alive only by slow drift.
+  trustbar: {
+    motif: "dust",
+    cursor: "none",
+    connect: false,
+    count: 24,
+    countMobile: 14,
+    speed: 0.4,
+    color: "goldDeep",
+    intensity: 0.32,
+    rMin: 0.6,
+    rMax: 1.4,
+    reach: 140,
+  },
+  // Collection — brilliance: sparkles that gather and brighten near the cursor.
+  collection: {
+    motif: "sparkle",
+    cursor: "attract",
+    connect: false,
+    count: 60,
+    countMobile: 28,
+    speed: 0.9,
+    color: "mixed",
+    intensity: 0.68,
+    rMin: 1.2,
+    rMax: 3,
+    reach: 210,
+  },
+  // Team — soft gold bokeh with gentle cursor parallax (depth, calm).
+  team: {
+    motif: "bokeh",
+    cursor: "parallax",
+    connect: false,
+    count: 14,
+    countMobile: 9,
+    speed: 0.4,
+    color: "mixed",
+    intensity: 0.4,
+    rMin: 26,
+    rMax: 72,
+    reach: 240,
+  },
+  // Awards — engraved prestige rays rotating slowly, nudged by the cursor.
+  awards: {
+    motif: "rays",
+    cursor: "none",
+    connect: false,
+    count: 12,
+    countMobile: 8,
+    speed: 0.6,
+    color: "goldDeep",
+    intensity: 0.45,
+    rMin: 0.6,
+    rMax: 1.4,
+    reach: 200,
+  },
+  // FAQ — the quietest fold: a barely-there drift.
+  faq: {
+    motif: "dust",
+    cursor: "none",
+    connect: false,
+    count: 18,
+    countMobile: 12,
+    speed: 0.4,
+    color: "goldDeep",
+    intensity: 0.3,
+    rMin: 0.6,
+    rMax: 1.3,
+    reach: 140,
+  },
+  // CTA — the climax: a constellation converging on the cursor with fine links.
+  cta: {
+    motif: "sparkle",
+    cursor: "attract",
+    connect: true,
+    count: 64,
+    countMobile: 30,
+    speed: 0.9,
+    color: "mixed",
+    intensity: 0.75,
+    rMin: 1.1,
+    rMax: 3.2,
+    reach: 250,
+  },
+  // Footer — settled gold dust drifting to rest.
+  footer: {
+    motif: "dust",
+    cursor: "none",
+    connect: false,
+    count: 26,
+    countMobile: 14,
+    speed: 0.35,
+    color: "goldDeep",
+    intensity: 0.34,
+    rMin: 0.6,
+    rMax: 1.5,
+    reach: 140,
+  },
+};

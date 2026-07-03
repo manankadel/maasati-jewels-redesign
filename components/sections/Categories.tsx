@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -23,8 +25,9 @@ export function Categories() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-porcelain px-6 py-24 md:px-12 md:py-32">
-      <div className="mx-auto max-w-[1400px]">
+    <section className="relative isolate bg-porcelain px-6 py-24 md:px-12 md:py-32">
+      <SectionCanvas mode={BG.categories} />
+      <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="flex flex-col items-start justify-between gap-6 border-b border-ink/10 pb-10 md:flex-row md:items-end">
           <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
             <TextReveal>Six categories.</TextReveal>

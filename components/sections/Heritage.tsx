@@ -3,6 +3,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
 import { Counter } from "@/components/ui/Counter";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 const STATS = [
   { to: 9800, suffix: "+", label: "Production capacity, per year" },
@@ -12,8 +14,9 @@ const STATS = [
 
 export function Heritage() {
   return (
-    <section id="heritage" className="relative bg-porcelain px-6 py-24 md:px-12 md:py-32">
-      <div className="mx-auto grid max-w-[1400px] gap-14 md:grid-cols-2 md:gap-20">
+    <section id="heritage" className="relative isolate bg-porcelain px-6 py-24 md:px-12 md:py-32">
+      <SectionCanvas mode={BG.heritage} />
+      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 md:grid-cols-2 md:gap-20">
         <ImageReveal className="aspect-[4/5] w-full rounded-sm">
           <Image
             src="/images/production/p4.jpg"

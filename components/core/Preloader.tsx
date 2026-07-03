@@ -1,55 +1,68 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useReady } from "./ReadyContext";
 
+type Phase = "in" | "out" | "gone";
+
 export function Preloader() {
-  const [show, setShow] = useState(true);
+  const [phase, setPhase] = useState<Phase>("in");
   const { setReady } = useReady();
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    document.documentElement.classList.add("no-scroll");
-    const timer = setTimeout(
-      () => {
-        setShow(false);
-        setReady(true);
-        document.documentElement.classList.remove("no-scroll");
-      },
-      reduced ? 150 : 1400
-    );
+    const html = document.documentElement;
+    html.classList.add("no-scroll");
+    const HOLD = reduced ? 150 : 1400;
+    const EXIT = reduced ? 200 : 900;
+
+    // setTimeout (not rAF) drives the lifecycle, so a throttled/hidden tab can
+    // never leave the curtain stuck on screen.
+    const t1 = setTimeout(() => {
+      setReady(true);
+      html.classList.remove("no-scroll");
+      setPhase("out");
+    }, HOLD);
+    const t2 = setTimeout(() => setPhase("gone"), HOLD + EXIT);
+
     return () => {
-      clearTimeout(timer);
-      document.documentElement.classList.remove("no-scroll");
+      clearTimeout(t1);
+      clearTimeout(t2);
+      html.classList.remove("no-scroll");
     };
   }, [setReady, reduced]);
 
+  if (phase === "gone") return null;
+
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          exit={reduced ? { opacity: 0 } : { y: "-100%" }}
-          transition={{ duration: reduced ? 0.2 : 1, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-porcelain"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="font-display text-sm tracking-[0.5em] text-ink/70"
-          >
-            MAA SATTI JEWELS
-          </motion.p>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.35, ease: [0.65, 0, 0.15, 1] }}
-            style={{ transformOrigin: "left" }}
-            className="mt-6 h-px w-40 bg-gold-deep"
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div
+      initial={false}
+      animate={
+        phase === "out"
+          ? reduced
+            ? { opacity: 0 }
+            : { y: "-100%" }
+          : { y: "0%", opacity: 1 }
+      }
+      transition={{ duration: reduced ? 0.2 : 0.9, ease: [0.76, 0, 0.24, 1] }}
+      className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-porcelain"
+    >
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+        className="font-display text-sm tracking-[0.5em] text-ink/70"
+      >
+        MAA SATTI JEWELS
+      </motion.p>
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, delay: 0.35, ease: [0.65, 0, 0.15, 1] }}
+        style={{ transformOrigin: "left" }}
+        className="mt-6 h-px w-40 bg-gold-deep"
+      />
+    </motion.div>
   );
 }

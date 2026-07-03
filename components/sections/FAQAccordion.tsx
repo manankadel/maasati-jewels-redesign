@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 const FAQS = [
   {
@@ -45,8 +47,9 @@ export function FAQAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
-      <div className="mx-auto max-w-3xl">
+    <section id="faq" className="relative isolate bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
+      <SectionCanvas mode={BG.faq} />
+      <div className="relative z-10 mx-auto max-w-3xl">
         <p className="text-center text-xs uppercase tracking-[0.35em] text-gold-deep">
           <TextReveal className="justify-center">Frequently Asked</TextReveal>
         </p>

@@ -1,7 +1,8 @@
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Reveal } from "@/components/ui/Reveal";
 import { Magnetic } from "@/components/ui/Magnetic";
-import { SparkleField } from "@/components/ui/SparkleField";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 import { FacetGem } from "@/components/ui/FacetGem";
 import { ArrowUpRight } from "lucide-react";
 
@@ -9,8 +10,9 @@ const WORDS = Array(6).fill("BESPOKE SOURCING");
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-porcelain py-24 md:py-36">
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap opacity-[0.06]">
+    <section className="relative isolate overflow-hidden bg-porcelain py-24 md:py-36">
+      <SectionCanvas mode={BG.cta} />
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-[1] -translate-y-1/2 select-none whitespace-nowrap opacity-[0.06]">
         <div className="flex animate-marquee gap-10">
           {[...WORDS, ...WORDS].map((w, i) => (
             <span key={i} className="font-display text-[10vw] leading-none text-gold-deep">
@@ -20,9 +22,7 @@ export function CTASection() {
         </div>
       </div>
 
-      <SparkleField className="opacity-70" />
-
-      <div className="relative mx-auto max-w-4xl px-6 text-center md:px-12">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center md:px-12">
         <FacetGem className="mx-auto mb-8 h-24 w-28 md:h-28 md:w-32" />
         <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
           <TextReveal className="justify-center">Let&apos;s Build Something Timeless</TextReveal>

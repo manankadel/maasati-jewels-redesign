@@ -6,6 +6,7 @@ import { Cursor } from "@/components/core/Cursor";
 import { Grain } from "@/components/core/Grain";
 import { Preloader } from "@/components/core/Preloader";
 import { ReadyProvider } from "@/components/core/ReadyContext";
+import { PointerProvider } from "@/components/core/PointerProvider";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -64,10 +65,12 @@ export default function RootLayout({
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="bg-porcelain text-ink antialiased">
         <ReadyProvider>
-          <Preloader />
-          <Grain />
-          <Cursor />
-          <SmoothScroll>{children}</SmoothScroll>
+          <PointerProvider>
+            <Preloader />
+            <Grain />
+            <Cursor />
+            <SmoothScroll>{children}</SmoothScroll>
+          </PointerProvider>
         </ReadyProvider>
       </body>
     </html>

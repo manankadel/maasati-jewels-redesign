@@ -1,4 +1,6 @@
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 const POINTS = [
   { value: "22K", label: "Real gold, 14K–22K purity" },
@@ -9,8 +11,9 @@ const POINTS = [
 
 export function TrustBar() {
   return (
-    <section className="border-y border-ink/10 bg-bone px-6 py-14 md:px-12">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-0">
+    <section className="relative isolate overflow-hidden border-y border-ink/10 bg-bone px-6 py-14 md:px-12">
+      <SectionCanvas mode={BG.trustbar} />
+      <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-2 gap-y-10 md:grid-cols-4 md:gap-0">
         {POINTS.map((point, i) => (
           <Reveal key={point.label} delay={i * 0.06}>
             <div className="relative pr-6 md:border-l md:border-ink/10 md:px-8 md:first:border-l-0 md:first:pl-0">

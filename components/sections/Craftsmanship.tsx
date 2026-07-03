@@ -6,6 +6,8 @@ import { motion, useScroll } from "framer-motion";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 const STEPS = [
   {
@@ -45,8 +47,9 @@ export function Craftsmanship() {
   });
 
   return (
-    <section id="craft" className="relative bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="craft" className="relative isolate bg-bone px-6 py-24 text-ink md:px-12 md:py-32">
+      <SectionCanvas mode={BG.craftsmanship} />
+      <div className="relative z-10 mx-auto max-w-[1400px]">
         <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
           <TextReveal>Outstanding Production Ability</TextReveal>
         </p>

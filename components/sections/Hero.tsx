@@ -6,7 +6,8 @@ import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Magnetic } from "@/components/ui/Magnetic";
-import { SparkleField } from "@/components/ui/SparkleField";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 import { useReady } from "@/components/core/ReadyContext";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -60,11 +61,11 @@ export function Hero() {
         />
       </motion.div>
 
-      <SparkleField className="opacity-80" />
+      <SectionCanvas mode={BG.hero} />
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative mx-auto w-full max-w-[1400px]"
+        className="relative z-10 mx-auto w-full max-w-[1400px]"
       >
         <motion.p
           initial={{ opacity: 0, y: 12 }}

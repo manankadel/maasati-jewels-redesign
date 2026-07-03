@@ -2,6 +2,8 @@ import Image from "next/image";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 const PIECES = [
   { image: "/images/products/necklaces.jpg", alt: "Polki and pearl necklace set", span: "md:row-span-2" },
@@ -12,8 +14,9 @@ const PIECES = [
 
 export function Collection() {
   return (
-    <section id="collection" className="bg-porcelain px-6 py-24 md:px-12 md:py-32">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="collection" className="relative isolate bg-porcelain px-6 py-24 md:px-12 md:py-32">
+      <SectionCanvas mode={BG.collection} />
+      <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="mb-12 flex flex-col items-start justify-between gap-6 border-b border-ink/10 pb-10 md:flex-row md:items-end">
           <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
             <TextReveal>A collection built for</TextReveal>

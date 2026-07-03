@@ -1,4 +1,6 @@
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 function SocialIcon({ path }: { path: string }) {
   return (
@@ -28,8 +30,9 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-ink/10 bg-bone px-6 pb-10 pt-16 md:px-12">
-      <div className="mx-auto max-w-[1400px]">
+    <footer className="relative isolate overflow-hidden border-t border-ink/10 bg-bone px-6 pb-10 pt-16 md:px-12">
+      <SectionCanvas mode={BG.footer} />
+      <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <p className="font-display text-2xl tracking-[0.1em] text-ink">
@@ -99,7 +102,7 @@ export function Footer() {
 
       <p
         aria-hidden
-        className="pointer-events-none mt-10 select-none text-center font-display text-[16vw] leading-none tracking-tighter text-ink/[0.05] md:text-[9vw]"
+        className="pointer-events-none relative z-10 mt-10 select-none text-center font-display text-[16vw] leading-none tracking-tighter text-ink/[0.05] md:text-[9vw]"
       >
         MAA SATTI JEWELS
       </p>

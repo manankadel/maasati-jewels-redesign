@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
+import { SectionCanvas } from "@/components/core/ReactiveBackground";
+import { BG } from "@/components/core/bgModes";
 
 const TEAM = [
   {
@@ -28,8 +30,9 @@ const TEAM = [
 
 export function Team() {
   return (
-    <section id="team" className="bg-porcelain px-6 py-24 md:px-12 md:py-32">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="team" className="relative isolate bg-porcelain px-6 py-24 md:px-12 md:py-32">
+      <SectionCanvas mode={BG.team} />
+      <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="border-b border-ink/10 pb-10">
           <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
             <TextReveal>Leadership</TextReveal>
