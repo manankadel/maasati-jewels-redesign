@@ -28,13 +28,13 @@ const TEAM = [
 
 export function Team() {
   return (
-    <section id="team" className="bg-ink px-6 py-24 md:px-12 md:py-32">
+    <section id="team" className="bg-porcelain px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="border-b border-gold/15 pb-10">
-          <p className="text-xs uppercase tracking-[0.35em] text-gold">
+        <div className="border-b border-ink/10 pb-10">
+          <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
             <TextReveal>Leadership</TextReveal>
           </p>
-          <h2 className="mt-5 max-w-xl font-display text-4xl leading-tight text-bone md:text-5xl">
+          <h2 className="mt-5 max-w-xl font-display text-4xl leading-tight text-ink md:text-5xl">
             <TextReveal delay={0.06}>The hands steering the atelier.</TextReveal>
           </h2>
         </div>
@@ -59,12 +59,12 @@ export function Team() {
                   />
                 </motion.div>
               </ImageReveal>
-              <p className="relative mt-5 inline-block font-display text-2xl text-bone">
+              <p className="relative mt-5 inline-block font-display text-2xl text-ink">
                 {member.name}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-500 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold-deep transition-all duration-500 group-hover:w-full" />
               </p>
-              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold">{member.role}</p>
-              <p className="mt-3 text-sm leading-relaxed text-bone/60">{member.bio}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold-deep">{member.role}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink/60">{member.bio}</p>
             </div>
           ))}
         </div>

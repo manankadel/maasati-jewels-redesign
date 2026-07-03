@@ -35,12 +35,16 @@ export function Nav() {
       animate={{ y: hidden ? "-100%" : "0%" }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled ? "bg-ink/80 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-porcelain/80 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-12">
-        <a href="#" data-cursor="Home" className="font-display text-lg tracking-[0.15em] text-bone">
-          MAA SATTI <span className="text-gold">JEWELS</span>
+        <a
+          href="#"
+          data-cursor="Home"
+          className="font-display text-lg tracking-[0.15em] text-ink"
+        >
+          MAA SATTI <span className="text-gold-deep">JEWELS</span>
         </a>
 
         <nav
@@ -52,13 +56,13 @@ export function Nav() {
               key={link.href}
               href={link.href}
               onMouseEnter={() => setHovered(link.href)}
-              className="relative px-4 py-2 text-xs uppercase tracking-[0.2em] text-bone/70 transition-colors hover:text-bone"
+              className="relative px-4 py-2 text-xs uppercase tracking-[0.2em] text-ink/60 transition-colors hover:text-ink"
             >
               {hovered === link.href && (
                 <motion.span
                   layoutId="nav-hover"
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0 rounded-full bg-bone/[0.06]"
+                  className="absolute inset-0 rounded-full bg-ink/[0.05]"
                 />
               )}
               <span className="relative">{link.label}</span>
@@ -67,7 +71,7 @@ export function Nav() {
           <Magnetic className="ml-4">
             <a
               href="#contact"
-              className="group flex items-center gap-1.5 rounded-full border border-gold/50 px-5 py-2 text-xs uppercase tracking-[0.2em] text-gold transition hover:bg-gold hover:text-ink"
+              className="group flex items-center gap-1.5 rounded-full border border-gold-deep/40 px-5 py-2 text-xs uppercase tracking-[0.2em] text-gold-deep transition hover:bg-gold-deep hover:text-porcelain"
             >
               Book a Call
               <ArrowUpRight
@@ -80,7 +84,7 @@ export function Nav() {
 
         <button
           onClick={() => setOpen(true)}
-          className="text-bone md:hidden"
+          className="text-ink md:hidden"
           aria-label="Open menu"
         >
           <Menu size={26} />
@@ -93,14 +97,14 @@ export function Nav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex flex-col bg-ink px-6 py-6 md:hidden"
+            className="fixed inset-0 z-50 flex flex-col bg-porcelain px-6 py-6 md:hidden"
           >
             <div className="flex items-center justify-between">
-              <span className="font-display text-lg tracking-[0.15em] text-bone">
-                MAA SATTI <span className="text-gold">JEWELS</span>
+              <span className="font-display text-lg tracking-[0.15em] text-ink">
+                MAA SATTI <span className="text-gold-deep">JEWELS</span>
               </span>
               <button onClick={() => setOpen(false)} aria-label="Close menu">
-                <X size={26} className="text-bone" />
+                <X size={26} className="text-ink" />
               </button>
             </div>
             <div className="mt-16 flex flex-col gap-8">
@@ -112,7 +116,7 @@ export function Nav() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i }}
-                  className="font-display text-3xl text-bone"
+                  className="font-display text-3xl text-ink"
                 >
                   {link.label}
                 </motion.a>

@@ -69,8 +69,8 @@ export function GoldThread({ className }: { className?: string }) {
       >
         <motion.path
           d={d}
-          stroke="var(--gold)"
-          strokeOpacity={0.35}
+          stroke="var(--gold-deep)"
+          strokeOpacity={0.5}
           strokeWidth={1}
           initial={{ pathLength: 0 }}
           whileInView={{ pathLength: 1 }}
@@ -79,7 +79,7 @@ export function GoldThread({ className }: { className?: string }) {
         />
       </svg>
       <motion.span
-        className="absolute left-1/2 top-1/2 block h-2 w-2 border border-gold bg-ink"
+        className="absolute left-1/2 top-1/2 block h-2 w-2 border border-gold-deep bg-ink"
         style={{
           x: gemX,
           y: gemY,

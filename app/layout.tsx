@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0a08",
+  themeColor: "#faf6ef",
 };
 
 export default function RootLayout({
@@ -62,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="bg-ink text-bone antialiased">
+      <body className="bg-porcelain text-ink antialiased">
         <ReadyProvider>
           <Preloader />
           <Grain />

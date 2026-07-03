@@ -77,7 +77,7 @@ export function FacetGem({ className }: { className?: string }) {
           <motion.path
             key={d}
             d={d}
-            stroke="var(--gold)"
+            stroke="var(--gold-deep)"
             strokeWidth={i === 0 ? 1.5 : 0.75}
             strokeLinejoin="round"
             strokeLinecap="round"
@@ -96,7 +96,7 @@ export function FacetGem({ className }: { className?: string }) {
         {!reduced && (
           <motion.path
             d={OUTLINE}
-            stroke="var(--gold-light)"
+            stroke="var(--gold)"
             strokeWidth={1.5}
             strokeLinejoin="round"
             strokeLinecap="round"

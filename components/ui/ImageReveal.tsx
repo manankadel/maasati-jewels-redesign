@@ -17,6 +17,7 @@ const scaleVariants: Variants = {
 const CURTAIN_COLOR = {
   ink: "bg-ink",
   bone: "bg-bone",
+  porcelain: "bg-porcelain",
 };
 
 export function ImageReveal({
@@ -24,13 +25,13 @@ export function ImageReveal({
   className,
   delay = 0,
   duration = 1.1,
-  curtain = "ink",
+  curtain = "porcelain",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   duration?: number;
-  curtain?: "ink" | "bone";
+  curtain?: "ink" | "bone" | "porcelain";
 }) {
   return (
     <div className={cn("relative overflow-hidden", className)}>

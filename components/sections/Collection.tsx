@@ -12,12 +12,12 @@ const PIECES = [
 
 export function Collection() {
   return (
-    <section id="collection" className="bg-ink px-6 py-24 md:px-12 md:py-32">
+    <section id="collection" className="bg-porcelain px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 border-b border-gold/15 pb-10 md:flex-row md:items-end">
-          <h2 className="font-display text-4xl leading-tight text-bone md:text-5xl">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 border-b border-ink/10 pb-10 md:flex-row md:items-end">
+          <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
             <TextReveal>A collection built for</TextReveal>
-            <TextReveal delay={0.08} className="italic text-gold">
+            <TextReveal delay={0.08} className="italic text-gold-deep">
               the brands you know.
             </TextReveal>
           </h2>
@@ -25,7 +25,7 @@ export function Collection() {
             <a
               href="#contact"
               data-cursor="Request"
-              className="whitespace-nowrap text-xs uppercase tracking-[0.2em] text-gold underline underline-offset-4"
+              className="whitespace-nowrap text-xs uppercase tracking-[0.2em] text-gold-deep underline underline-offset-4"
             >
               Request the full catalogue
             </a>

@@ -23,17 +23,17 @@ export function Categories() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-ink px-6 py-24 md:px-12 md:py-32">
+    <section className="bg-porcelain px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="flex flex-col items-start justify-between gap-6 border-b border-gold/15 pb-10 md:flex-row md:items-end">
-          <h2 className="font-display text-4xl leading-tight text-bone md:text-5xl">
+        <div className="flex flex-col items-start justify-between gap-6 border-b border-ink/10 pb-10 md:flex-row md:items-end">
+          <h2 className="font-display text-4xl leading-tight text-ink md:text-5xl">
             <TextReveal>Six categories.</TextReveal>
-            <TextReveal delay={0.08} className="italic text-gold">
+            <TextReveal delay={0.08} className="italic text-gold-deep">
               One standard.
             </TextReveal>
           </h2>
           <Reveal>
-            <p className="max-w-sm text-sm leading-relaxed text-bone/60">
+            <p className="max-w-sm text-sm leading-relaxed text-ink/60">
               Every category is manufactured in-house — from CAD design to the
               final polish — so quality never depends on a third party.
             </p>
@@ -43,7 +43,7 @@ export function Categories() {
         <div className="mt-4 grid gap-4 md:grid-cols-2 md:gap-16">
           <ul
             onMouseLeave={() => setActive(0)}
-            className="flex flex-col divide-y divide-gold/10"
+            className="flex flex-col divide-y divide-ink/10"
           >
             {CATEGORIES.map((cat, i) => (
               <li key={cat.name}>
@@ -54,13 +54,13 @@ export function Categories() {
                   className="group flex items-center justify-between gap-6 py-6"
                 >
                   <span className="flex items-baseline gap-6">
-                    <span className="font-display text-xs text-gold">
+                    <span className="font-display text-xs text-gold-deep">
                       0{i + 1}
                     </span>
                     <span
                       className={cn(
                         "font-display text-3xl transition-colors duration-300 md:text-4xl",
-                        active === i ? "text-gold" : "text-bone group-hover:text-gold/70"
+                        active === i ? "text-gold-deep" : "text-ink group-hover:text-gold-deep/70"
                       )}
                     >
                       {cat.name}
@@ -69,7 +69,7 @@ export function Categories() {
                   <ArrowUpRight
                     size={22}
                     className={cn(
-                      "shrink-0 text-gold transition-all duration-300",
+                      "shrink-0 text-gold-deep transition-all duration-300",
                       active === i
                         ? "translate-x-0 opacity-100"
                         : "-translate-x-2 opacity-0"
@@ -97,7 +97,7 @@ export function Categories() {
                   sizes="45vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 border border-gold/20" />
+                <div className="absolute inset-0 border border-ink/10" />
               </motion.div>
             </AnimatePresence>
           </div>

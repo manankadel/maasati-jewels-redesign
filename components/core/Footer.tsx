@@ -19,27 +19,27 @@ const ICON_PATHS = {
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="group relative inline-block text-bone/60 transition-colors hover:text-bone">
+    <a href={href} className="group relative inline-block text-ink/60 transition-colors hover:text-ink">
       {children}
-      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gold-deep transition-all duration-300 group-hover:w-full" />
     </a>
   );
 }
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-gold/20 bg-ink px-6 pb-10 pt-16 md:px-12">
+    <footer className="relative overflow-hidden border-t border-ink/10 bg-bone px-6 pb-10 pt-16 md:px-12">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <p className="font-display text-2xl tracking-[0.1em] text-bone">
-              MAA SATTI <span className="text-gold">JEWELS</span>
+            <p className="font-display text-2xl tracking-[0.1em] text-ink">
+              MAA SATTI <span className="text-gold-deep">JEWELS</span>
             </p>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-bone/60">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">
               A B2B manufacturing atelier in Jaipur, forging Polki, diamond, and
               real-gold jewellery for retailers and brands since 2003.
             </p>
-            <div className="mt-6 flex gap-4 text-bone/50">
+            <div className="mt-6 flex gap-4 text-ink/50">
               {[
                 { href: "https://www.instagram.com/maasattijewels/", label: "Instagram", path: ICON_PATHS.instagram },
                 { href: "https://www.linkedin.com/company/maa-satti-jewels-pvt-ltd/", label: "LinkedIn", path: ICON_PATHS.linkedin },
@@ -51,7 +51,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="block transition hover:text-gold"
+                    className="block transition hover:text-gold-deep"
                   >
                     <SocialIcon path={social.path} />
                   </a>
@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-gold">Studio</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Studio</p>
             <ul className="mt-5 space-y-3 text-sm">
               <li><FooterLink href="#heritage">Heritage</FooterLink></li>
               <li><FooterLink href="#craft">Craftsmanship</FooterLink></li>
@@ -72,8 +72,8 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-gold">Categories</p>
-            <ul className="mt-5 space-y-3 text-sm text-bone/60">
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Categories</p>
+            <ul className="mt-5 space-y-3 text-sm text-ink/60">
               <li>Necklaces</li>
               <li>Earrings</li>
               <li>Bangles</li>
@@ -82,8 +82,8 @@ export function Footer() {
           </div>
 
           <div id="contact">
-            <p className="text-xs uppercase tracking-[0.25em] text-gold">Visit the Atelier</p>
-            <ul className="mt-5 space-y-3 text-sm text-bone/60">
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Visit the Atelier</p>
+            <ul className="mt-5 space-y-3 text-sm text-ink/60">
               <li>F-60, EPIP, Sitapura,<br />Jaipur, Rajasthan 302022</li>
               <li><FooterLink href="mailto:maasattijewels@gmail.com">maasattijewels@gmail.com</FooterLink></li>
               <li><FooterLink href="tel:+911414517725">+91 141 451 7725</FooterLink></li>
@@ -91,7 +91,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gold/10 pt-6 text-xs text-bone/40 md:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-ink/10 pt-6 text-xs text-ink/40 md:flex-row">
           <p>© {new Date().getFullYear()} Maa Satti Jewels Pvt. Ltd. All rights reserved.</p>
           <p>Concept redesign by Blueblood Studio</p>
         </div>
@@ -99,7 +99,7 @@ export function Footer() {
 
       <p
         aria-hidden
-        className="pointer-events-none mt-10 select-none text-center font-display text-[16vw] leading-none tracking-tighter text-bone/[0.04] md:text-[9vw]"
+        className="pointer-events-none mt-10 select-none text-center font-display text-[16vw] leading-none tracking-tighter text-ink/[0.05] md:text-[9vw]"
       >
         MAA SATTI JEWELS
       </p>

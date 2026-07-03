@@ -12,7 +12,7 @@ const STATS = [
 
 export function Heritage() {
   return (
-    <section id="heritage" className="relative bg-ink px-6 py-24 md:px-12 md:py-32">
+    <section id="heritage" className="relative bg-porcelain px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto grid max-w-[1400px] gap-14 md:grid-cols-2 md:gap-20">
         <ImageReveal className="aspect-[4/5] w-full rounded-sm">
           <Image
@@ -22,19 +22,19 @@ export function Heritage() {
             sizes="(min-width: 768px) 45vw, 100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 border border-gold/20" />
+          <div className="absolute inset-0 border border-ink/10" />
         </ImageReveal>
 
         <div className="flex flex-col justify-center">
-          <p className="text-xs uppercase tracking-[0.35em] text-gold">
+          <p className="text-xs uppercase tracking-[0.35em] text-gold-deep">
             <TextReveal>Our Heritage &middot; Est. 2003</TextReveal>
           </p>
-          <h2 className="mt-5 font-display text-4xl leading-[1.1] text-bone md:text-5xl">
+          <h2 className="mt-5 font-display text-4xl leading-[1.1] text-ink md:text-5xl">
             <TextReveal delay={0.06}>Home to some of Jaipur&apos;s</TextReveal>
             <TextReveal delay={0.12}>finest master craftsmen.</TextReveal>
           </h2>
           <Reveal delay={0.2}>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-bone/65">
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-ink/65">
               Maa Satti Jewels preserves timeless artistry through exclusive
               handmade creations that reflect rich heritage and unmatched
               precision. Known for its signature light-weight luxury, the
@@ -48,10 +48,10 @@ export function Heritage() {
           <div className="mt-12 grid grid-cols-3 gap-x-6 gap-y-8">
             {STATS.map((stat, i) => (
               <Reveal key={stat.label} delay={0.3 + i * 0.08}>
-                <p className="font-display text-3xl text-gold md:text-4xl">
+                <p className="font-display text-3xl text-gold-deep md:text-4xl">
                   <Counter to={stat.to} suffix={stat.suffix} />
                 </p>
-                <p className="mt-2 text-xs uppercase leading-snug tracking-[0.1em] text-bone/50">
+                <p className="mt-2 text-xs uppercase leading-snug tracking-[0.1em] text-ink/50">
                   {stat.label}
                 </p>
               </Reveal>

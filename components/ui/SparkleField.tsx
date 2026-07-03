@@ -75,7 +75,7 @@ function Star({
       {/* Idle twinkle layer */}
       <motion.svg
         viewBox="0 0 24 24"
-        className="absolute inset-0 h-full w-full text-gold"
+        className="absolute inset-0 h-full w-full text-gold-deep"
         initial={{ opacity: 0.15 }}
         animate={
           interactive
@@ -94,7 +94,7 @@ function Star({
       {interactive && (
         <motion.svg
           viewBox="0 0 24 24"
-          className="absolute inset-0 h-full w-full text-gold-light"
+          className="absolute inset-0 h-full w-full text-gold"
           style={{ opacity: glowOpacity }}
         >
           <path d={STAR_PATH} fill="currentColor" />

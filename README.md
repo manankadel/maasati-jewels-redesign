@@ -13,9 +13,9 @@ Built by [Blueblood Studio](https://bluebloodstudio.com) as an unsolicited pitch
 
 ## What changed from the original
 
-The original site is a functional B2B brochure site. This concept repositions Maa Satti as **"the atelier behind India's finest jewellers"** — leaning into the heritage, scale (350+ craftsmen, 9,800+ pieces/year, since 2003), and manufacturing craft story with a cinematic, editorial-luxury visual language: large serif typography, a gold-on-ink palette, scroll-triggered reveals, and a process-driven craftsmanship section.
+The original site is a functional B2B brochure site. This concept repositions Maa Satti as **"the atelier behind India's finest jewellers"** — leaning into the heritage, scale (350+ craftsmen, 9,800+ pieces/year, since 2003), and manufacturing craft story with a cinematic, editorial-luxury visual language: large serif typography, a warm porcelain-and-gold light palette, real inertia smooth-scroll (Lenis), a custom cursor, mouse-reactive SVG systems, curtain image reveals, and a process-driven craftsmanship section.
 
-All copy is grounded in real facts from the current site (founding year, craftsman count, production capacity, categories, contact details). Imagery is placeholder stock photography — final assets would use Maa Satti's own product photography.
+All copy and imagery are the brand's own (product photography, leadership portraits, award coverage) grounded in real facts from the current site — founding year, craftsman count, production capacity, categories, and contact details.
 
 ## Development
 
